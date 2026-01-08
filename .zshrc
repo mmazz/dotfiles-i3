@@ -7,6 +7,7 @@ stty stop undef # saca el Ctrl+s para freezar terminal
 ### Environment
 export TERM="xterm-256color"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export LS_COLORS="di=1;34:fi=0;37:ow=1;34:tw=1;34"
 export LESS='-R' # colores para less
 export MYVIMRC="$HOME/.config/nvim/init.lua"
 
@@ -89,5 +90,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-i3/ --work-tree=$HOME'
 alias vim='nvim'
 
 alias zathura='zathura --fork'
+alias ls='ls --color=auto'
 
 export PATH="$HOME/bin:$PATH"
