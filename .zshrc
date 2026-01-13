@@ -86,10 +86,21 @@ bindkey '^e' edit-command-line
 ### Syntax highlighting (last)
 ## sudo git clone https://github.com/zdharma-continuum/fast-syntax-highlighting /usr/share/zsh/plugins/fast-syntax-highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles-i3/ --work-tree=$HOME'
+alias gitdotfile='/usr/bin/git --git-dir=$HOME/.dotfiles-i3/ --work-tree=$HOME'
 alias vim='nvim'
 
 alias zathura='zathura --fork'
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
+alias ll="ls -la"
+
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkd="mkdir -pv" \
+    grep="grep --color=auto" \
+	diff="diff --color=auto" \
+    git l="git log --all --graph --decorate"
 
 export PATH="$HOME/bin:$PATH"

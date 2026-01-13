@@ -23,10 +23,11 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-exec --no-startup-id picom
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 exec_always --no-startup-id feh --randomize --bg-scale ~/Pictures/wallpapers
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -37,6 +38,7 @@ bindsym $mod+Shift+x exec --no-startup-id i3lock -i ~/.config/i3/lockscreen.png
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+exec --no-startup-id unclutter -idle 10
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -50,6 +52,15 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 
+gaps inner 10
+gaps outer 0
+
+# Bordes más limpios
+default_border pixel 2
+default_floating_border pixel 2
+
+# Sin gaps cuando hay una sola ventana (opcional)
+smart_gaps on
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -80,7 +91,7 @@ assign [class="Spotify"] $ws5
 assign [class="pavucontrol"] $ws9
 
 exec --no-startup-id firefox
-exec --no-startup-id alacritty
+exec --no-startup-id i3-msg 'workspace 2; exec alacritty; workspace 1'
 exec --no-startup-id spotify
 exec --no-startup-id pavucontrol
 
@@ -190,8 +201,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 bindsym $mod+Shift+s exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
-exec_always --no-startup-id setxkbmap us -variant altgr-intl
+exec_always --no-startup-id sh -c 'sleep 1 && setxkbmap us -variant altgr-intl'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
