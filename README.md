@@ -13,7 +13,7 @@ sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xf86-video-intel
 
 ```bash
 echo ".dotfiles-i3" >> .gitignore
-git clone --bare https://github.com/mmazz/.dotfiles-i3.git $HOME/.dotfile-i3
+git clone --bare https://github.com/mmazz/.dotfiles-i3.git $HOME/.dotfiles-i3
 alias gitdotfile='/usr/bin/git --git-dir=$HOME/.dotfiles-i3/ --work-tree=$HOME'
 gitdotfile checkout
 gitdotfile config --local status.showUntrackedFiles no
