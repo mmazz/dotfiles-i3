@@ -5,7 +5,7 @@
 ```bash
 sudo pacman -S i3-wm i3status i3lock dmenu
 sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot xf86-video-intel xf86-video-amdgpu
-sudo pacman -S alacritty git base-devel fd clang tree-sitter-cli feh
+sudo pacman -S alacritty git base-devel fd clang tree-sitter-cli feh libreoffice
 sudo pacman -S ttf-jetbrains-mono-nerd ttf-firacode-nerd
 sudo pacman -S xss-lock picom pavucontrol lxappearance neovim zsh luarocks curl
 sudo pacman -S zathura zathura-pdf-poppler
