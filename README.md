@@ -30,3 +30,9 @@ Configure the ssh key and only once:
 ```bash
 gitdotfile push -u origin main
 ```
+
+
+### After:
+```bash
+sudo git clone https://github.com/zdharma-continuum/fast-syntax-highlighting /usr/share/zsh/plugins/fast-syntax-highlighting
+```
